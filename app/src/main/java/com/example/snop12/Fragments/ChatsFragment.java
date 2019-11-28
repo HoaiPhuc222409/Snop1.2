@@ -57,7 +57,7 @@ public class ChatsFragment extends Fragment {
 
         fUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        usersList = new ArrayList<>();
+        usersList = new CopyOnWriteArrayList<>();
 
         reference = FirebaseDatabase.getInstance().getReference("Chats");
         reference.addValueEventListener(new ValueEventListener() {
@@ -90,14 +90,14 @@ public class ChatsFragment extends Fragment {
     }
 
     private void readChats() {
-        mUsers = new ArrayList<>();
+        mUsers = new CopyOnWriteArrayList<>();
 
         reference = FirebaseDatabase.getInstance().getReference("Users");
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                mUsers.clear();
+                mUsers.clear();
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     User user = snapshot.getValue(User.class);
