@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseUser fuser;
     DatabaseReference reference;
+
+    private TabLayout tabLayout;
 
 
     @Override
@@ -86,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
         viewPagerAdapter.addFragmment(new UsersFragment(),"Users");
         viewPagerAdapter.addFragmment(new ProfileFragment(),"Profile");
 
+//        createTabIcons();
+
         viewPager.setAdapter(viewPagerAdapter);
 
         tabLayout.setupWithViewPager(viewPager);
@@ -107,6 +112,23 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
+//    private void createTabIcons() {
+//
+//        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.id.tab_layout,null,false);
+//        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_message, 0, 0);
+//        tabLayout.getTabAt(0).setCustomView(tabOne);
+//
+//        TextView tabTwo = (TextView) findViewById(R.id.tab_layout);
+//        tabTwo.setText("Users");
+//        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_friend, 0, 0);
+//        tabLayout.getTabAt(1).setCustomView(tabTwo);
+//
+//        TextView tabThree = (TextView) findViewById(R.id.tab_layout);
+//        tabThree.setText("Profile");
+//        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_profile, 0, 0);
+//        tabLayout.getTabAt(2).setCustomView(tabThree);
+//    }
 
     class ViewPagerAdapter extends FragmentPagerAdapter{
 

@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +23,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class LoginActivity extends AppCompatActivity {
 
-    MaterialEditText email, password;
+    EditText email, password;
     Button btnLogin;
 
     FirebaseAuth auth;
@@ -59,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                 String txt_password=password.getText().toString();
 
                 if (TextUtils.isEmpty(txt_email)|TextUtils.isEmpty(txt_password)){
-                    Toast.makeText(LoginActivity.this, "All fields are require", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "All fields are required", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     auth.signInWithEmailAndPassword(txt_email,txt_password)

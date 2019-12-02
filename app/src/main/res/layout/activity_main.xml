@@ -37,19 +37,18 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:background="@color/colorPrimaryDark"
-            app:tabSelectedTextColor="#fff"
-            app:tabIndicatorColor="#fff"
+            app:tabSelectedTextColor="#3BE90B"
+            app:tabIndicatorColor="#3BE90B"
             app:tabTextColor="#fff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.appbar.AppBarLayout>
 
 
-
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </LinearLayout>
